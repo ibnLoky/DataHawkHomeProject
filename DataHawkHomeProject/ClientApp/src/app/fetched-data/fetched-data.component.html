@@ -1,0 +1,35 @@
+<h1 id="tableLabel">Stored reviews</h1>
+
+<div class="md-form">
+  <input type="text"
+         #searchText
+         name="searchText"
+         (model)="searchText"
+         class="form-control"
+         id="search"
+         placeholder="Search"
+         (keyup)="searchItems(searchText.value)"/>
+</div>
+
+<p *ngIf="!reviews"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="reviews">
+  <thead>
+    <tr>
+      <th (click)='sortColumn("asin")'>Asin</th>
+      <th (click)='sortColumn("rating")'>Rating</th>
+      <th (click)='sortColumn("title")'>Title</th>
+      <th (click)='sortColumn("date")'>Date</th>
+      <th (click)='sortColumn("review")'>Review</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let review of reviews">
+      <td>{{ review.asin }}</td>
+      <td>{{ review.rating }}</td>
+      <td>{{ review.title }}</td>
+      <td>{{ review.date }}</td>
+      <td>{{ review.reviewText }}</td>
+    </tr>
+  </tbody>
+</table>

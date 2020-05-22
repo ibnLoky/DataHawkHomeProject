@@ -1,0 +1,28 @@
+<h1>Reviews</h1>
+<div class="container">
+  <div class="row">
+    <div class="add-form col-sm">
+      <p>Please, input ASINs separeted by commas</p>
+      <div class="col-md-8">
+        <input class="form-control" [(ngModel)]="asin" placeholder="One or several ASINs separated by commas" />
+        <button class="btn btn-default" (click)="addItems(asin)">Add</button>
+      </div>
+      </div>
+    <div class="col-sm">
+      <table class='table table-striped' aria-labelledby="tableLabel">
+        <thead>
+          <tr>
+            <th>Asin</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let asin of asins">
+            <td>{{ asin.asinNumber }}</td>
+            <td>{{ asin.statusDisplay }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
